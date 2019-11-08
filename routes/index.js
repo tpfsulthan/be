@@ -14,7 +14,54 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/airship', function(req, res, next) {
-  res.json({ status : 'Meow' });
+
+ 
+    
+var request = require('request');
+
+
+var headers = {
+    'Accept': 'application/vnd.urbanairship+json; version=3',
+    'Content-Type': 'application/json',
+    'Postman-Token': '4aa2d6de-6959-495a-a977-181a13a52064',
+    'cache-control': 'no-cache'
+};
+
+
+var dataString = {
+          "audience": "all",
+          "notification": { "alert" : "Hey Android and iOS!!" },
+          "device_types": ["android","ios"]
+};
+
+
+var options = {
+    url: 'https://go.urbanairship.com/api/push',
+    method: 'POST',
+    headers: headers,
+    body: dataString
+};
+
+
+function callback(error, response, body) {
+    if (!error && response.statusCode == 200) {
+        console.log(body);
+        res.json({ status : body });
+    }
+}
+
+
+request(options, callback);
+ 
+
+
+
+
+
+
+
+
+  
 });
 
 
