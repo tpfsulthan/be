@@ -31,7 +31,7 @@ router.get('/getGeoLocation', function(req, res, next) {
 
 router.get('/updateGeoLocation', function(req, res, next) {
   var device = req.query.device_id;
-  dbModel.user.findOne({device_id:device}, function(err, data) {
+  dbModel.equipment.findOne({device_id:device}, function(err, data) {
     data.lat = req.query.lat;
     data.lng = req.query.lng;
     data.save(function(err) {
