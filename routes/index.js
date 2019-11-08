@@ -17,18 +17,11 @@ router.get('/', function(req, res, next) {
 
 router.get('/getGeoLocation', function(req, res, next) {
   var vehicle = req.query.vehicle;
-  if(equipment[vehicle]==undefined){
-    res.json({ status : false, message : "Invalid vehicle number. Allowed 0-3" });
-  }
-  else{
-    dbModel.equipment.findOne({"device_id": req.query.vehicle}, function(err, userData) {
-      if(err){res.status(200).json({status: 0, message  : 'Equipment not found'} ); } else {
-        res.json({ status : true, userData : userData });
-      }
-    });
-
-    
-  }
+  dbModel.equipment.findOne({"device_id": req.query.vehicle}, function(err, userData) {
+    if(err){res.status(200).json({status: 0, message  : 'Equipment not found'} ); } else {
+      res.json({ status : true, userData : userData });
+    }
+  });
 });
 
 router.get('/updateGeoLocation', function(req, res, next) {
