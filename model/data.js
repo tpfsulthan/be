@@ -4,6 +4,7 @@ var equipment = [
   {"device_id":3,"name":"Baggage","icon":"bma.png","lat":12.958189,"lng":80.187093}, 
   // {"device_id":4,"name":"Ladder","icon":"ladder.png","lat":12.943882,"lng":80.193186}
 ];
+
 var flight = [ { "name":"RT100"}, { "name":"RT101"}, { "name":"RT102"}, { "name":"RT103"}];
 var bay = [ { "name":"01"}, { "name":"02"}, { "name":"03"}, { "name":"04"}];
 var style = [
