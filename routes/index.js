@@ -12,6 +12,10 @@ router.get('/', function(req, res, next) {
   res.json({ status : true });
 });
 
+router.get('/airship', function(req, res, next) {
+  res.json({ status : true });
+});
+
 
 router.get('/getGeoLocation', function(req, res, next) {
   var vehicle = req.query.vehicle;
