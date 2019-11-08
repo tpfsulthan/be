@@ -12,9 +12,9 @@ router.get('/', function(req, res, next) {
   res.json({ status : true });
 });
 
+
 router.get('/airship', function(req, res, next) {
-  
-  res.json({ status : "Message sent"+req.body.message });
+  res.json({ status : 'Meow' });
 });
 
 
@@ -24,8 +24,13 @@ router.get('/getGeoLocation', function(req, res, next) {
     res.json({ status : false, message : "Invalid vehicle number. Allowed 0-3" });
   }
   else{
-    var location = {lat: equipment[vehicle].lat,lng:equipment[vehicle].lng};
-    res.json({ status : true, location : location });
+    dbModel.equipment.findOne({"device_id": req.query.vehicle}, function(err, userData) {
+      if(err){res.status(200).json({status: 0, message  : 'Equipment not found'} ); } else {
+        res.json({ status : true, userData : userData });
+      }
+    });
+
+    
   }
 });
 
