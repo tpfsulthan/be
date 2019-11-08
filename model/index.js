@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 //var connection = mongoose.connect('mongodb://localhost:27017/SmartTrack', { useNewUrlParser: true, useUnifiedTopology: true });
-var connection = mongoose.connect('mongodb://root:password@ds141228.mlab.com:41228/smart-track', { useNewUrlParser: true, useUnifiedTopology: true });
+var connection = mongoose.connect('mongodb://root:1password@ds141228.mlab.com:41228/smart-track', { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 
