@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/airship', function(req, res, next) {
-  res.json({ status : true });
+  res.json({ status : 'Meow' });
 });
 
 
